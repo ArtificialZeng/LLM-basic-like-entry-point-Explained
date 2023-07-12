@@ -1,8 +1,29 @@
-#!/home/ailab/.conda/envs/chatglm_etuning/bin/python
-# -*- coding: utf-8 -*-
-import re
-import sys
-from torch.distributed.run import main
-if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(main())
+#!/home/ailab/.conda/envs/chatglm_etuning/bin/python  #这是一个shebang行，用于指示操作系统使用哪个解释器来运行此脚本。这里，脚本将使用../chatglm_etuning/bin/python这个Python解释器。
+# -*- coding: utf-8 -*- #一个Python的入口脚本，用于启动一个分布式程序。以下是对每一行代码的解释：
+import re  #Python的内置正则表达式库。
+import sys  #提供了一些与Python解释器和其环境交互的函数和变量。
+from torch.distributed.run import main  #从torch.distributed.run模块中导入main函数。这个函数是启动分布式程序的主函数。
+if __name__ == '__main__':  #ython程序的常见入口点。当脚本被直接执行（而不是作为模块导入）时，__name__变量的值为'__main__'。
+
+    #这行代码修改了sys.argv[0]的值。sys.argv是一个包含命令行参数的列表，sys.argv[0]是脚本的名称。这行代码使用正则表达式删除了脚本名称末尾的-script.pyw或.exe后缀。
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0]) 
+    sys.exit(main())  #调用了之前导入的main函数，并将其返回值作为程序的退出码。如果main函数返回0，那么程序成功退出；如果main函数返回非0值，那么程序以错误状态退出。
+#总的来说，这个脚本使用指定的Python解释器启动一个分布式程序。
+
+
+'''
+re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0]) 这行代码用于使用正则表达式替换字符串。让我们逐个分解来理解它的工作原理：
+
+re.sub() 是Python正则表达式库的一个函数，用于替换字符串中的子串。它有三个参数：第一个是一个正则表达式，它定义了需要被替换的子串的模式；第二个参数是用于替换匹配到的子串的新字符串；第三个参数是原始的、需要被处理的字符串。
+
+r'(-script\.pyw|\.exe)?$' 是一个正则表达式。这里的 r 是一个标识符，指示后面的字符串应作为原始字符串处理，其中的特殊字符（如 \）不会被转义。正则表达式中的 (-script\.pyw|\.exe)?$ 可以被分解为以下部分：
+
+(-script\.pyw|\.exe) 是一个组，匹配 -script.pyw 或 .exe。
+? 指示前面的组是可选的，即它可能出现也可能不出现。
+$ 是一个元字符，表示字符串的结束。所以，这个正则表达式匹配以 -script.pyw 或 .exe 结尾的字符串。
+'' 是第二个参数，即用于替换找到的匹配项的新字符串。这里是一个空字符串，所以被匹配到的子串会被删除。
+
+sys.argv[0] 是第三个参数，即需要被处理的字符串。sys.argv 是一个列表，包含了命令行参数。sys.argv[0] 是脚本的名称。
+
+所以，这行代码的作用是删除 sys.argv[0]，即脚本名称中末尾的 -script.pyw 或 .exe 后缀。
+'''
