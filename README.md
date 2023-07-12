@@ -12,7 +12,7 @@ LLM-basic-like-entry-point-Explained相关代码，逐行详解版。
   * [utils/](./ChatGLM-Efficient-Tuning-Explained/src/utils)
     * [common.py](./ChatGLM-Efficient-Tuning-Explained/src/utils/common.py)
     * [peft_trainer.py](./ChatGLM-Efficient-Tuning-Explained/src/utils/peft_trainer.py)
-  * [CSDN彩色源码解析train_sft.py](https://zengxiaojian.blog.csdn.net/article/details/131458667)
+  * [CSDN彩色版 分布式入口脚本 - torchrun](https://zengxiaojian.blog.csdn.net/article/details/131674989?ydreferer=aHR0cHM6Ly9tcC5jc2RuLm5ldC9tcF9ibG9nL21hbmFnZS9hcnRpY2xlP3NwbT0zMDAxLjUyOTg%3D)
 * [README.md](./ChatGLM-Efficient-Tuning-Explained/README.md)
 
 ChatGLM Efficient Tuning源码解析train_sft.py   https://zengxiaojian.blog.csdn.net/article/details/131458667
